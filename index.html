@@ -1,0 +1,2138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EduQuest - Belajar Jadi Game</title>
+
+<style>
+/* =========================================================
+   EDUQUEST
+   WEBSITE GAME EDUKASI
+   CSS UTAMA
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fb;
+    color: #182235;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid #e5e9f0;
+
+    padding: 14px 5%;
+}
+
+.navbar {
+    max-width: 1250px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.logo-icon {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 12px;
+
+    background: linear-gradient(135deg,#3867ff,#6d5dfc);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-size: 20px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 22px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #596579;
+    font-weight: 700;
+}
+
+.nav-links a:hover {
+    color: #3867ff;
+}
+
+.points {
+    background: #eef2ff;
+    color: #3855c7;
+
+    padding: 9px 14px;
+    border-radius: 20px;
+
+    font-weight: 800;
+}
+
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+    max-width: 1250px;
+    margin: auto;
+
+    min-height: 500px;
+
+    padding: 75px 5%;
+
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-label {
+    display: inline-block;
+
+    background: #e9efff;
+    color: #3b5bdb;
+
+    padding: 8px 14px;
+    border-radius: 20px;
+
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1.02;
+
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: #4169e1;
+}
+
+.hero p {
+    color: #667085;
+
+    font-size: 18px;
+    line-height: 1.7;
+
+    max-width: 620px;
+
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.primary-button,
+.secondary-button {
+    border: none;
+    cursor: pointer;
+
+    padding: 14px 22px;
+
+    border-radius: 13px;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    transition: .2s;
+}
+
+.primary-button {
+    background: #4169e1;
+    color: white;
+}
+
+.primary-button:hover {
+    transform: translateY(-2px);
+}
+
+.secondary-button {
+    background: white;
+    color: #26334d;
+    border: 1px solid #dfe4ec;
+}
+
+/* =========================
+   HERO VISUAL
+   ========================= */
+
+.hero-card {
+    position: relative;
+
+    min-height: 360px;
+
+    background: linear-gradient(145deg,#eaf0ff,#ffffff);
+
+    border-radius: 30px;
+
+    border: 1px solid #e0e6f1;
+
+    padding: 30px;
+
+    overflow: hidden;
+}
+
+.hero-circle {
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    border-radius: 50%;
+
+    background: #dce6ff;
+
+    right: -70px;
+    top: -70px;
+}
+
+.learning-card {
+    position: absolute;
+
+    left: 35px;
+    right: 35px;
+    top: 55px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    box-shadow: 0 20px 50px rgba(37,53,91,.12);
+}
+
+.learning-card small {
+    color: #7b8495;
+}
+
+.learning-card h2 {
+    margin: 10px 0 20px;
+}
+
+.progress-bar {
+    height: 12px;
+
+    background: #edf0f5;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 72%;
+    height: 100%;
+
+    background: #4169e1;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 20px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat strong {
+    display: block;
+    font-size: 23px;
+}
+
+/* =========================
+   SECTION
+   ========================= */
+
+section {
+    padding: 70px 5%;
+}
+
+.section-inner {
+    max-width: 1250px;
+    margin: auto;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-heading h2 {
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.section-heading p {
+    color: #727c8e;
+}
+
+/* =========================
+   SEARCH
+   ========================= */
+
+.search-box {
+    max-width: 600px;
+    margin: 0 auto 35px;
+
+    position: relative;
+}
+
+.search-box input {
+    width: 100%;
+
+    padding: 16px 20px;
+
+    border: 1px solid #dce2eb;
+    border-radius: 15px;
+
+    font-size: 16px;
+
+    outline: none;
+
+    background: white;
+}
+
+.search-box input:focus {
+    border-color: #4169e1;
+}
+
+/* =========================
+   SUBJECT CARDS
+   ========================= */
+
+.subject-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.subject-card {
+    background: white;
+
+    border: 1px solid #e2e7ef;
+
+    border-radius: 20px;
+
+    padding: 24px;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.subject-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 35px rgba(37,53,91,.10);
+}
+
+.subject-image {
+    height: 130px;
+
+    border-radius: 15px;
+
+    margin-bottom: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 52px;
+
+    background: linear-gradient(135deg,#eef3ff,#f7f9ff);
+}
+
+.subject-card h3 {
+    margin-bottom: 8px;
+}
+
+.subject-card p {
+    color: #788296;
+
+    line-height: 1.5;
+
+    font-size: 14px;
+}
+
+.subject-level {
+    display: inline-block;
+
+    margin-top: 15px;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    background: #f0f3f8;
+
+    padding: 6px 10px;
+
+    border-radius: 10px;
+}
+
+/* =========================
+   MATERIAL
+   ========================= */
+
+.material-section {
+    background: white;
+}
+
+.material-box {
+    display: grid;
+
+    grid-template-columns: 280px 1fr;
+
+    gap: 35px;
+}
+
+.material-menu {
+    background: #f6f8fc;
+
+    border-radius: 18px;
+
+    padding: 18px;
+
+    height: fit-content;
+}
+
+.material-menu button {
+    display: block;
+
+    width: 100%;
+
+    border: none;
+
+    background: transparent;
+
+    text-align: left;
+
+    padding: 13px;
+
+    border-radius: 10px;
+
+    margin-bottom: 6px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    color: #606b7e;
+}
+
+.material-menu button.active,
+.material-menu button:hover {
+    background: white;
+    color: #4169e1;
+}
+
+.material-content {
+    background: #ffffff;
+
+    border: 1px solid #e2e7ef;
+
+    border-radius: 20px;
+
+    padding: 35px;
+}
+
+.material-content h3 {
+    font-size: 30px;
+    margin-bottom: 18px;
+}
+
+.material-content p {
+    color: #626d7e;
+
+    line-height: 1.8;
+
+    margin-bottom: 20px;
+}
+
+.example {
+    background: #f4f7ff;
+
+    border-left: 5px solid #4169e1;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    margin-top: 20px;
+}
+
+/* =========================
+   QUIZ
+   ========================= */
+
+.quiz-section {
+    background: #f7f9fd;
+}
+
+.quiz-card {
+    max-width: 800px;
+
+    margin: auto;
+
+    background: white;
+
+    border: 1px solid #e0e5ed;
+
+    border-radius: 25px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 20px 60px rgba(37,53,91,.08);
+}
+
+.quiz-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #697488;
+
+    font-weight: 800;
+
+    margin-bottom: 25px;
+}
+
+.quiz-card h3 {
+    font-size: 24px;
+
+    line-height: 1.5;
+
+    margin-bottom: 25px;
+}
+
+.answers {
+    display: grid;
+
+    gap: 12px;
+}
+
+.answer {
+    padding: 16px;
+
+    border-radius: 13px;
+
+    border: 2px solid #e2e7ee;
+
+    background: white;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    transition: .2s;
+}
+
+.answer:hover {
+    border-color: #4169e1;
+    background: #f5f7ff;
+}
+
+.answer.correct {
+    border-color: #35a66f;
+    background: #ecfbf4;
+}
+
+.answer.wrong {
+    border-color: #d84c5b;
+    background: #fff0f1;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+    background: #172033;
+
+    color: white;
+
+    padding: 50px 5%;
+}
+
+.footer-inner {
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr 1fr 1fr;
+
+    gap: 40px;
+}
+
+footer p {
+    color: #aab2c1;
+
+    line-height: 1.7;
+
+    margin-top: 12px;
+}
+
+footer h3 {
+    margin-bottom: 15px;
+}
+
+footer a {
+    display: block;
+
+    color: #aab2c1;
+
+    text-decoration: none;
+
+    margin-bottom: 10px;
+}
+
+footer a:hover {
+    color: white;
+}
+
+.copyright {
+    text-align: center;
+
+    color: #8993a6;
+
+    margin-top: 40px;
+
+    border-top: 1px solid #2c3547;
+
+    padding-top: 25px;
+}
+
+/* =========================
+   MODAL
+   ========================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(10,18,35,.55);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 2000;
+
+    padding: 20px;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+
+    max-width: 500px;
+
+    width: 100%;
+
+    border-radius: 22px;
+
+    padding: 30px;
+
+    text-align: center;
+}
+
+.modal-content h2 {
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    color: #687386;
+
+    line-height: 1.6;
+
+    margin-bottom: 20px;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media(max-width: 1000px) {
+
+    .subject-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .material-box {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 650px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .points {
+        font-size: 12px;
+    }
+
+    .hero {
+        padding-top: 45px;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .subject-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 50px 5%;
+    }
+
+    .quiz-card {
+        padding: 22px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+
+<header>
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            EQ
+        </div>
+
+        <span>EduQuest</span>
+
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="#beranda">Beranda</a>
+
+        <a href="#pelajaran">Pelajaran</a>
+
+        <a href="#materi">Materi</a>
+
+        <a href="#kuis">Kuis</a>
+
+    </div>
+
+
+    <div class="points">
+        ⭐ <span id="points">0</span> XP
+    </div>
+
+</nav>
+
+</header>
+
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<main id="beranda">
+
+<section class="hero">
+
+    <div>
+
+        <span class="hero-label">
+            PLATFORM BELAJAR INTERAKTIF
+        </span>
+
+
+        <h1>
+            Belajar lebih
+            <span>seru.</span>
+            Main lebih pintar.
+        </h1>
+
+
+        <p>
+            EduQuest adalah website belajar berbasis game
+            yang membantu kamu memahami berbagai pelajaran
+            melalui materi singkat, tantangan, kuis, dan sistem
+            pengalaman.
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <button
+                class="primary-button"
+                onclick="scrollToSection('pelajaran')">
+
+                Mulai Belajar
+
+            </button>
+
+
+            <button
+                class="secondary-button"
+                onclick="scrollToSection('kuis')">
+
+                Coba Kuis
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="hero-card">
+
+        <div class="hero-circle"></div>
+
+
+        <div class="learning-card">
+
+            <small>
+                PROGRES BELAJAR HARI INI
+            </small>
+
+            <h2>
+                Matematika
+            </h2>
+
+
+            <div class="progress-bar">
+
+                <div class="progress-fill"></div>
+
+            </div>
+
+
+            <div class="stat-row">
+
+                <div class="stat">
+
+                    <strong>72%</strong>
+
+                    <small>
+                        Progres
+                    </small>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong>18</strong>
+
+                    <small>
+                        Soal
+                    </small>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong>540</strong>
+
+                    <small>
+                        XP
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PELAJARAN
+     ========================================================= -->
+
+<section id="pelajaran">
+
+<div class="section-inner">
+
+    <div class="section-heading">
+
+        <h2>
+            Pilih Pelajaran
+        </h2>
+
+        <p>
+            Cari pelajaran yang ingin kamu kuasai.
+        </p>
+
+    </div>
+
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Cari pelajaran..."
+            oninput="searchSubjects()">
+
+    </div>
+
+
+    <div class="subject-grid" id="subjectGrid">
+
+
+        <!-- MATEMATIKA -->
+
+        <div
+            class="subject-card"
+            data-name="matematika"
+            onclick="openSubject('Matematika')">
+
+            <div class="subject-image">
+                ∑
+            </div>
+
+            <h3>
+                Matematika
+            </h3>
+
+            <p>
+                Bilangan, pecahan, persentase,
+                aljabar, geometri, dan logika.
+            </p>
+
+            <span class="subject-level">
+                KELAS 4–6
+            </span>
+
+        </div>
+
+
+
+        <!-- IPA -->
+
+        <div
+            class="subject-card"
+            data-name="ipa ilmu pengetahuan alam sains"
+            onclick="openSubject('IPA')">
+
+            <div class="subject-image">
+                ⚛
+            </div>
+
+            <h3>
+                IPA
+            </h3>
+
+            <p>
+                Pelajari tubuh manusia, hewan,
+                tumbuhan, energi, dan alam.
+            </p>
+
+            <span class="subject-level">
+                KELAS 4–6
+            </span>
+
+        </div>
+
+
+
+        <!-- IPS -->
+
+        <div
+            class="subject-card"
+            data-name="ips ilmu pengetahuan sosial"
+            onclick="openSubject('IPS')">
+
+            <div class="subject-image">
+                ◈
+            </div>
+
+            <h3>
+                IPS
+            </h3>
+
+            <p>
+                Sejarah, geografi, ekonomi,
+                masyarakat, dan budaya.
+            </p>
+
+            <span class="subject-level">
+                KELAS 4–6
+            </span>
+
+        </div>
+
+
+
+        <!-- BAHASA INDONESIA -->
+
+        <div
+            class="subject-card"
+            data-name="bahasa indonesia"
+            onclick="openSubject('Bahasa Indonesia')">
+
+            <div class="subject-image">
+                A
+            </div>
+
+            <h3>
+                Bahasa Indonesia
+            </h3>
+
+            <p>
+                Membaca, menulis, kosakata,
+                kalimat, dan pemahaman bacaan.
+            </p>
+
+            <span class="subject-level">
+                KELAS 4–6
+            </span>
+
+        </div>
+
+
+
+        <!-- BAHASA INGGRIS -->
+
+        <div
+            class="subject-card"
+            data-name="bahasa inggris english"
+            onclick="openSubject('Bahasa Inggris')">
+
+            <div class="subject-image">
+                EN
+            </div>
+
+            <h3>
+                Bahasa Inggris
+            </h3>
+
+            <p>
+                Vocabulary, grammar,
+                reading, dan percakapan dasar.
+            </p>
+
+            <span class="subject-level">
+                BASIC
+            </span>
+
+        </div>
+
+
+
+        <!-- PPKN -->
+
+        <div
+            class="subject-card"
+            data-name="ppkn pancasila kewarganegaraan"
+            onclick="openSubject('PPKn')">
+
+            <div class="subject-image">
+                P5
+            </div>
+
+            <h3>
+                PPKn
+            </h3>
+
+            <p>
+                Pancasila, aturan, hak,
+                kewajiban, dan kehidupan bersama.
+            </p>
+
+            <span class="subject-level">
+                KELAS 4–6
+            </span>
+
+        </div>
+
+
+
+        <!-- INFORMATIKA -->
+
+        <div
+            class="subject-card"
+            data-name="informatika komputer coding"
+            onclick="openSubject('Informatika')">
+
+            <div class="subject-image">
+                &lt;/&gt;
+            </div>
+
+            <h3>
+                Informatika
+            </h3>
+
+            <p>
+                Komputer, algoritma, internet,
+                coding, dan teknologi.
+            </p>
+
+            <span class="subject-level">
+                TEKNOLOGI
+            </span>
+
+        </div>
+
+
+
+        <!-- LOGIKA -->
+
+        <div
+            class="subject-card"
+            data-name="logika iq berpikir"
+            onclick="openSubject('Logika')">
+
+            <div class="subject-image">
+                ?
+            </div>
+
+            <h3>
+                Logika
+            </h3>
+
+            <p>
+                Latihan berpikir kritis,
+                pola, urutan, dan pemecahan masalah.
+            </p>
+
+            <span class="subject-level">
+                BRAIN TRAINING
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     MATERI
+     ========================================================= -->
+
+<section
+    class="material-section"
+    id="materi">
+
+<div class="section-inner">
+
+    <div class="section-heading">
+
+        <h2>
+            Materi Pembelajaran
+        </h2>
+
+        <p>
+            Pelajari konsepnya sebelum menghadapi tantangan.
+        </p>
+
+    </div>
+
+
+    <div class="material-box">
+
+
+        <div class="material-menu">
+
+            <button
+                class="active"
+                onclick="changeMaterial('matematika',this)">
+
+                Matematika
+
+            </button>
+
+
+            <button
+                onclick="changeMaterial('ipa',this)">
+
+                IPA
+
+            </button>
+
+
+            <button
+                onclick="changeMaterial('bahasa',this)">
+
+                Bahasa Indonesia
+
+            </button>
+
+
+            <button
+                onclick="changeMaterial('informatika',this)">
+
+                Informatika
+
+            </button>
+
+        </div>
+
+
+
+        <div
+            class="material-content"
+            id="materialContent">
+
+            <h3>
+                Persentase
+            </h3>
+
+
+            <p>
+                Persentase digunakan untuk menunjukkan
+                suatu bagian dari keseluruhan dalam bentuk
+                per seratus.
+            </p>
+
+
+            <p>
+                Kata "persen" berasal dari gagasan
+                "per seratus". Karena itu, 25% berarti
+                25 dari setiap 100 bagian.
+            </p>
+
+
+            <div class="example">
+
+                <strong>
+                    Contoh:
+                </strong>
+
+                <br><br>
+
+                20% dari 60
+
+                <br>
+
+                = 20 ÷ 100 × 60
+
+                <br>
+
+                = 0,2 × 60
+
+                <br>
+
+                = <strong>12</strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     QUIZ
+     ========================================================= -->
+
+<section
+    class="quiz-section"
+    id="kuis">
+
+<div class="section-inner">
+
+    <div class="section-heading">
+
+        <h2>
+            Tantangan Hari Ini
+        </h2>
+
+        <p>
+            Jawab pertanyaan dan dapatkan XP.
+        </p>
+
+    </div>
+
+
+    <div class="quiz-card">
+
+
+        <div class="quiz-top">
+
+            <span id="questionNumber">
+                Soal 1 dari 5
+            </span>
+
+            <span>
+                XP: <span id="quizXP">0</span>
+            </span>
+
+        </div>
+
+
+        <h3 id="question">
+            Berapakah 20% dari 60?
+        </h3>
+
+
+        <div
+            class="answers"
+            id="answers">
+
+            <button
+                class="answer"
+                onclick="answerQuestion(this,12)">
+
+                12
+
+            </button>
+
+
+            <button
+                class="answer"
+                onclick="answerQuestion(this,20)">
+
+                20
+
+            </button>
+
+
+            <button
+                class="answer"
+                onclick="answerQuestion(this,30)">
+
+                30
+
+            </button>
+
+
+            <button
+                class="answer"
+                onclick="answerQuestion(this,15)">
+
+                15
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer>
+
+<div class="footer-inner">
+
+    <div>
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                EQ
+            </div>
+
+            EduQuest
+
+        </div>
+
+
+        <p>
+            Platform belajar interaktif yang mengubah
+            belajar menjadi pengalaman yang lebih
+            menyenangkan dan menantang.
+        </p>
+
+    </div>
+
+
+    <div>
+
+        <h3>
+            Menu
+        </h3>
+
+        <a href="#beranda">
+            Beranda
+        </a>
+
+        <a href="#pelajaran">
+            Pelajaran
+        </a>
+
+        <a href="#materi">
+            Materi
+        </a>
+
+        <a href="#kuis">
+            Kuis
+        </a>
+
+    </div>
+
+
+    <div>
+
+        <h3>
+            Pelajaran
+        </h3>
+
+        <a href="#pelajaran">
+            Matematika
+        </a>
+
+        <a href="#pelajaran">
+            IPA
+        </a>
+
+        <a href="#pelajaran">
+            Bahasa Indonesia
+        </a>
+
+        <a href="#pelajaran">
+            Informatika
+        </a>
+
+    </div>
+
+</div>
+
+
+<div class="copyright">
+
+    © 2026 EduQuest. Belajar. Bermain. Berkembang.
+
+</div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     MODAL
+     ========================================================= -->
+
+<div
+    class="modal"
+    id="modal">
+
+<div class="modal-content">
+
+    <h2 id="modalTitle">
+        Pelajaran
+    </h2>
+
+    <p id="modalText">
+        Materi akan tersedia di sini.
+    </p>
+
+    <button
+        class="primary-button"
+        onclick="closeModal()">
+
+        Mulai Belajar
+
+    </button>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
+<script>
+
+/* =========================================================
+   DATA DASAR
+   ========================================================= */
+
+let points = 0;
+
+let currentQuestion = 0;
+
+let quizXP = 0;
+
+
+/* =========================================================
+   NAVIGASI
+   ========================================================= */
+
+function scrollToSection(id) {
+
+    document
+        .getElementById(id)
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+/* =========================================================
+   PENCARIAN PELAJARAN
+   ========================================================= */
+
+function searchSubjects() {
+
+    const search =
+        document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+    const cards =
+        document.querySelectorAll(
+            ".subject-card"
+        );
+
+
+    cards.forEach(card => {
+
+        const name =
+            card
+            .dataset
+            .name
+            .toLowerCase();
+
+
+        if (name.includes(search)) {
+
+            card.style.display = "block";
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   MODAL PELAJARAN
+   ========================================================= */
+
+function openSubject(subject) {
+
+    document
+        .getElementById("modalTitle")
+        .textContent =
+        subject;
+
+
+    document
+        .getElementById("modalText")
+        .textContent =
+        "Kamu memilih " +
+        subject +
+        ". Materi dan tantangan untuk pelajaran ini akan tersedia di dalam perjalanan belajar EduQuest.";
+
+
+    document
+        .getElementById("modal")
+        .classList
+        .add("show");
+
+}
+
+
+function closeModal() {
+
+    document
+        .getElementById("modal")
+        .classList
+        .remove("show");
+
+}
+
+
+/* =========================================================
+   MATERI
+   ========================================================= */
+
+function changeMaterial(type, button) {
+
+    const content =
+        document
+        .getElementById("materialContent");
+
+
+    document
+        .querySelectorAll(".material-menu button")
+        .forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+
+    button.classList.add("active");
+
+
+    if (type === "matematika") {
+
+        content.innerHTML = `
+
+            <h3>Persentase</h3>
+
+            <p>
+                Persentase digunakan untuk menunjukkan
+                bagian dari keseluruhan dalam bentuk
+                per seratus.
+            </p>
+
+            <p>
+                Untuk menghitung persentase dari suatu
+                bilangan, ubah persentase menjadi
+                pecahan atau desimal kemudian kalikan
+                dengan bilangan tersebut.
+            </p>
+
+            <div class="example">
+
+                <strong>Contoh:</strong>
+
+                <br><br>
+
+                30% dari 45
+
+                <br>
+
+                = 30 ÷ 100 × 45
+
+                <br>
+
+                = 0,3 × 45
+
+                <br>
+
+                = <strong>13,5</strong>
+
+            </div>
+
+        `;
+
+    }
+
+
+    else if (type === "ipa") {
+
+        content.innerHTML = `
+
+            <h3>Fotosintesis</h3>
+
+            <p>
+                Fotosintesis adalah proses yang dilakukan
+                tumbuhan hijau untuk menghasilkan makanan
+                dengan memanfaatkan energi cahaya.
+            </p>
+
+            <p>
+                Dalam proses tersebut, tumbuhan
+                menggunakan air dan karbon dioksida
+                serta menghasilkan glukosa dan oksigen.
+            </p>
+
+            <div class="example">
+
+                <strong>Intinya:</strong>
+
+                <br><br>
+
+                Cahaya + air + karbon dioksida
+                → makanan + oksigen
+
+            </div>
+
+        `;
+
+    }
+
+
+    else if (type === "bahasa") {
+
+        content.innerHTML = `
+
+            <h3>Kalimat Efektif</h3>
+
+            <p>
+                Kalimat efektif adalah kalimat yang
+                menyampaikan gagasan secara jelas,
+                tepat, dan mudah dipahami.
+            </p>
+
+            <div class="example">
+
+                <strong>Contoh:</strong>
+
+                <br><br>
+
+                "Para siswa sedang belajar
+                di kelas."
+
+                <br><br>
+
+                Kalimat tersebut singkat dan
+                menyampaikan informasi dengan jelas.
+
+            </div>
+
+        `;
+
+    }
+
+
+    else if (type === "informatika") {
+
+        content.innerHTML = `
+
+            <h3>Algoritma</h3>
+
+            <p>
+                Algoritma adalah urutan langkah yang
+                sistematis untuk menyelesaikan suatu
+                masalah atau mencapai tujuan.
+            </p>
+
+            <div class="example">
+
+                <strong>Contoh sederhana:</strong>
+
+                <br><br>
+
+                1. Siapkan bahan.
+                <br>
+                2. Masukkan bahan.
+                <br>
+                3. Proses.
+                <br>
+                4. Dapatkan hasil.
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   SISTEM QUIZ
+   ========================================================= */
+
+const questions = [
+
+    {
+        question:
+        "Berapakah 20% dari 60?",
+
+        answers:
+        [12,20,30,15],
+
+        correct:
+        12
+    },
+
+
+    {
+        question:
+        "Berapakah hasil dari 7 × 8?",
+
+        answers:
+        [48,54,56,64],
+
+        correct:
+        56
+    },
+
+
+    {
+        question:
+        "Planet yang kita tinggali adalah...",
+
+        answers:
+        ["Mars","Bumi","Venus","Jupiter"],
+
+        correct:
+        "Bumi"
+    },
+
+
+    {
+        question:
+        "Hasil dari 100 ÷ 4 adalah...",
+
+        answers:
+        [20,25,30,40],
+
+        correct:
+        25
+    },
+
+
+    {
+        question:
+        "Bahasa yang digunakan untuk membuat struktur halaman web adalah...",
+
+        answers:
+        ["HTML","MP3","PNG","ZIP"],
+
+        correct:
+        "HTML"
+    }
+
+];
+
+
+function answerQuestion(button, answer) {
+
+    const current =
+        questions[currentQuestion];
+
+
+    const buttons =
+        document
+        .querySelectorAll(".answer");
+
+
+    buttons.forEach(btn => {
+
+        btn.disabled = true;
+
+    });
+
+
+    if (answer === current.correct) {
+
+        button.classList.add("correct");
+
+
+        quizXP += 100;
+
+        points += 100;
+
+
+        document
+            .getElementById("points")
+            .textContent =
+            points;
+
+
+        document
+            .getElementById("quizXP")
+            .textContent =
+            quizXP;
+
+    }
+
+    else {
+
+        button.classList.add("wrong");
+
+
+        buttons.forEach(btn => {
+
+            if (
+                String(btn.textContent).trim()
+                ===
+                String(current.correct)
+            ) {
+
+                btn.classList.add("correct");
+
+            }
+
+        });
+
+    }
+
+
+    setTimeout(() => {
+
+        nextQuestion();
+
+    }, 900);
+
+}
+
+
+/* =========================================================
+   SOAL BERIKUTNYA
+   ========================================================= */
+
+function nextQuestion() {
+
+    currentQuestion++;
+
+
+    if (
+        currentQuestion >=
+        questions.length
+    ) {
+
+        document
+            .getElementById("question")
+            .textContent =
+            "Kuis selesai! Kamu mendapatkan " +
+            quizXP +
+            " XP.";
+
+
+        document
+            .getElementById("answers")
+            .innerHTML = `
+
+                <button
+                    class="primary-button"
+                    onclick="restartQuiz()">
+
+                    Main Lagi
+
+                </button>
+
+            `;
+
+
+        document
+            .getElementById("questionNumber")
+            .textContent =
+            "Selesai";
+
+        return;
+
+    }
+
+
+    loadQuestion();
+
+}
+
+
+/* =========================================================
+   MEMUAT SOAL
+   ========================================================= */
+
+function loadQuestion() {
+
+    const q =
+        questions[currentQuestion];
+
+
+    document
+        .getElementById("questionNumber")
+        .textContent =
+        "Soal " +
+        (currentQuestion + 1) +
+        " dari " +
+        questions.length;
+
+
+    document
+        .getElementById("question")
+        .textContent =
+        q.question;
+
+
+    const answers =
+        document
+        .getElementById("answers");
+
+
+    answers.innerHTML = "";
+
+
+    q.answers.forEach(answer => {
+
+        const button =
+            document.createElement("button");
+
+
+        button.className =
+            "answer";
+
+
+        button.textContent =
+            answer;
+
+
+        button.onclick =
+            function() {
+
+                answerQuestion(
+                    button,
+                    answer
+                );
+
+            };
+
+
+        answers.appendChild(button);
+
+    });
+
+}
+
+
+/* =========================================================
+   ULANG QUIZ
+   ========================================================= */
+
+function restartQuiz() {
+
+    currentQuestion = 0;
+
+    quizXP = 0;
+
+
+    document
+        .getElementById("quizXP")
+        .textContent =
+        "0";
+
+
+    loadQuestion();
+
+}
+
+
+/* =========================================================
+   TUTUP MODAL JIKA KLIK DI LUAR
+   ========================================================= */
+
+document
+    .getElementById("modal")
+    .addEventListener(
+        "click",
+        function(event) {
+
+            if (
+                event.target === this
+            ) {
+
+                closeModal();
+
+            }
+
+        }
+    );
+
+
+/* =========================================================
+   INISIALISASI
+   ========================================================= */
+
+loadQuestion();
+
+</script>
+
+</body>
+  </html>
