@@ -1,0 +1,1830 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GasBelajar — Pusat Pengetahuan</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5f7fa;
+  color:#1f2937;
+  line-height:1.7;
+}
+
+header{
+  background:white;
+  border-bottom:1px solid #e5e7eb;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+.nav{
+  max-width:1150px;
+  margin:auto;
+  padding:18px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:27px;
+  font-weight:800;
+  color:#111827;
+}
+
+.logo span{
+  color:#2563eb;
+}
+
+.nav-text{
+  color:#6b7280;
+  font-size:14px;
+}
+
+.container{
+  max-width:1150px;
+  margin:auto;
+  padding:35px 20px 60px;
+}
+
+.hero{
+  background:white;
+  border:1px solid #e5e7eb;
+  padding:40px;
+  display:grid;
+  grid-template-columns:1.5fr 1fr;
+  gap:30px;
+  align-items:center;
+  margin-bottom:30px;
+}
+
+.hero h1{
+  font-size:40px;
+  line-height:1.2;
+  margin:0 0 12px;
+  color:#111827;
+}
+
+.hero p{
+  color:#6b7280;
+  max-width:650px;
+}
+
+.hero-illustration{
+  min-height:220px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#eef4ff;
+  border-radius:18px;
+  font-size:100px;
+}
+
+.search-box{
+  position:relative;
+  margin:25px 0 35px;
+}
+
+.search{
+  width:100%;
+  padding:18px 20px;
+  border:1px solid #d1d5db;
+  border-radius:12px;
+  background:white;
+  font-size:16px;
+  outline:none;
+}
+
+.search:focus{
+  border-color:#2563eb;
+  box-shadow:0 0 0 3px #dbeafe;
+}
+
+.section-title{
+  margin:40px 0 18px;
+  font-size:25px;
+  color:#111827;
+}
+
+.subjects{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.subject{
+  background:white;
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  padding:20px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.subject:hover{
+  transform:translateY(-3px);
+  border-color:#93c5fd;
+  box-shadow:0 8px 25px rgba(0,0,0,.06);
+}
+
+.subject-icon{
+  width:52px;
+  height:52px;
+  border-radius:12px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#eef4ff;
+  font-size:27px;
+  margin-bottom:13px;
+}
+
+.subject h3{
+  margin:0;
+  font-size:17px;
+}
+
+.subject p{
+  margin:5px 0 0;
+  color:#6b7280;
+  font-size:13px;
+}
+
+.filter-info{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:15px;
+}
+
+.clear{
+  border:0;
+  background:white;
+  border:1px solid #ddd;
+  padding:8px 13px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.topics{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+
+.topic{
+  background:white;
+  border:1px solid #e5e7eb;
+  padding:17px;
+  border-radius:10px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.topic:hover{
+  border-color:#93c5fd;
+  transform:translateY(-2px);
+}
+
+.topic-title{
+  font-weight:bold;
+  color:#1f2937;
+}
+
+.topic-sub{
+  display:block;
+  color:#9ca3af;
+  font-size:12px;
+  margin-top:3px;
+}
+
+.article{
+  display:none;
+  background:white;
+  border:1px solid #e5e7eb;
+  border-radius:14px;
+  overflow:hidden;
+  margin-top:30px;
+}
+
+.article-cover{
+  min-height:230px;
+  background:#eef4ff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:100px;
+}
+
+.article-body{
+  padding:35px;
+}
+
+.back{
+  border:0;
+  background:white;
+  border:1px solid #ddd;
+  padding:9px 15px;
+  border-radius:8px;
+  cursor:pointer;
+  margin-bottom:20px;
+}
+
+.article h2{
+  font-size:32px;
+  margin-top:0;
+}
+
+.article h3{
+  margin-top:30px;
+  color:#111827;
+}
+
+.info{
+  background:#eff6ff;
+  border-left:4px solid #2563eb;
+  padding:16px 18px;
+  margin:20px 0;
+}
+
+.example{
+  background:#f8fafc;
+  border:1px solid #e5e7eb;
+  border-radius:10px;
+  padding:18px;
+  margin:20px 0;
+}
+
+.no-result{
+  display:none;
+  background:white;
+  padding:25px;
+  border:1px solid #ddd;
+  text-align:center;
+  color:#777;
+}
+
+footer{
+  background:white;
+  border-top:1px solid #e5e7eb;
+  text-align:center;
+  padding:30px 20px;
+  color:#6b7280;
+}
+
+@media(max-width:900px){
+  .subjects{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .topics{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:550px){
+  .container{
+    padding:20px 14px 50px;
+  }
+
+  .nav{
+    padding:15px;
+  }
+
+  .nav-text{
+    display:none;
+  }
+
+  .hero{
+    padding:25px;
+  }
+
+  .hero h1{
+    font-size:30px;
+  }
+
+  .hero-illustration{
+    min-height:160px;
+    font-size:75px;
+  }
+
+  .subjects,
+  .topics{
+    grid-template-columns:1fr;
+  }
+
+  .article-body{
+    padding:22px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">Gas<span>Belajar</span></div>
+    <div class="nav-text">Pusat pengetahuan dan pembelajaran</div>
+  </div>
+</header>
+
+<main class="container">
+
+<section class="hero">
+
+  <div>
+    <h1>Belajar lebih banyak. Pahami lebih dalam.</h1>
+
+    <p>
+      GasBelajar adalah tempat untuk menemukan berbagai materi
+      pembelajaran dengan penjelasan yang sederhana, terstruktur,
+      dan mudah dipahami.
+    </p>
+
+    <p>
+      Cari materi yang kamu butuhkan atau pilih mata pelajaran
+      yang ingin kamu pelajari.
+    </p>
+  </div>
+
+  <div class="hero-illustration">
+    📚
+  </div>
+
+</section>
+
+
+<div class="search-box">
+
+<input
+  id="search"
+  class="search"
+  type="text"
+  placeholder="🔎 Cari materi... contoh: aljabar, desimal, Jepang, fotosintesis"
+  oninput="cari()"
+>
+
+</div>
+
+
+<section id="home">
+
+<h2 class="section-title">Mata Pelajaran</h2>
+
+<div class="subjects">
+
+<div class="subject" onclick="filterMapel('Matematika')">
+  <div class="subject-icon">∑</div>
+  <h3>Matematika</h3>
+  <p>Bilangan, aljabar, geometri, statistika, dan lainnya.</p>
+</div>
+
+<div class="subject" onclick="filterMapel('IPA')">
+  <div class="subject-icon">🔬</div>
+  <h3>IPA</h3>
+  <p>Makhluk hidup, energi, tubuh, bumi, dan alam.</p>
+</div>
+
+<div class="subject" onclick="filterMapel('IPS')">
+  <div class="subject-icon">🌍</div>
+  <h3>IPS</h3>
+  <p>Geografi, sejarah, ekonomi, negara, dan masyarakat.</p>
+</div>
+
+<div class="subject" onclick="filterMapel('Bahasa Indonesia')">
+  <div class="subject-icon">A</div>
+  <h3>Bahasa Indonesia</h3>
+  <p>Kata, kalimat, teks, sastra, dan tata bahasa.</p>
+</div>
+
+<div class="subject" onclick="filterMapel('Bahasa Inggris')">
+  <div class="subject-icon">🇬🇧</div>
+  <h3>Bahasa Inggris</h3>
+  <p>Vocabulary, grammar, tenses, reading, dan writing.</p>
+</div>
+
+<div class="subject" onclick="filterMapel('PPKn')">
+  <div class="subject-icon">🇮🇩</div>
+  <h3>PPKn</h3>
+  <p>Pancasila, UUD, hak, kewajiban, dan negara.</p>
+</div>
+
+<div class="subject" onclick="filterMapel('Informatika')">
+  <div class="subject-icon">💻</div>
+  <h3>Informatika</h3>
+  <p>Komputer, internet, algoritma, data, dan coding.</p>
+</div>
+
+<div class="subject" onclick="filterMapel('Seni Budaya')">
+  <div class="subject-icon">🎨</div>
+  <h3>Seni Budaya</h3>
+  <p>Seni rupa, musik, tari, teater, dan budaya.</p>
+</div>
+
+<div class="subject" onclick="filterMapel('PJOK')">
+  <div class="subject-icon">⚽</div>
+  <h3>PJOK</h3>
+  <p>Olahraga, kebugaran, permainan, dan kesehatan.</p>
+</div>
+
+<div class="subject" onclick="filterMapel('PAI')">
+  <div class="subject-icon">☪️</div>
+  <h3>PAI</h3>
+  <p>Akidah, akhlak, ibadah, dan sejarah Islam.</p>
+</div>
+
+</div>
+
+
+<div class="filter-info">
+
+<h2 class="section-title">Semua Materi</h2>
+
+<button class="clear" onclick="resetFilter()">
+Tampilkan Semua
+</button>
+
+</div>
+
+
+<div id="topics" class="topics">
+
+
+<!-- ================= MATEMATIKA ================= -->
+
+<div class="topic" data-mapel="Matematika" data-key="bilangan asli">
+<div class="topic-title">Bilangan Asli</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="bilangan cacah">
+<div class="topic-title">Bilangan Cacah</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="bilangan bulat">
+<div class="topic-title">Bilangan Bulat</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="bilangan negatif">
+<div class="topic-title">Bilangan Negatif</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="bilangan prima">
+<div class="topic-title">Bilangan Prima</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="faktor">
+<div class="topic-title">Faktor</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="kelipatan">
+<div class="topic-title">Kelipatan</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="fpb">
+<div class="topic-title">FPB</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="kpk">
+<div class="topic-title">KPK</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="pecahan">
+<div class="topic-title">Pecahan</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="desimal">
+<div class="topic-title">Desimal</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="persentase persen">
+<div class="topic-title">Persentase</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="perbandingan">
+<div class="topic-title">Perbandingan</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="skala">
+<div class="topic-title">Skala</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="pangkat eksponen">
+<div class="topic-title">Pangkat dan Eksponen</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="akar kuadrat">
+<div class="topic-title">Akar Kuadrat</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="aljabar">
+<div class="topic-title">Aljabar</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="variabel">
+<div class="topic-title">Variabel</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="konstanta">
+<div class="topic-title">Konstanta</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="koefisien">
+<div class="topic-title">Koefisien</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="persamaan linear">
+<div class="topic-title">Persamaan Linear</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="pertidaksamaan">
+<div class="topic-title">Pertidaksamaan</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="pola bilangan">
+<div class="topic-title">Pola Bilangan</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="himpunan">
+<div class="topic-title">Himpunan</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="fungsi">
+<div class="topic-title">Fungsi</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="koordinat">
+<div class="topic-title">Koordinat</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="sudut">
+<div class="topic-title">Sudut</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="segitiga">
+<div class="topic-title">Segitiga</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="segiempat">
+<div class="topic-title">Segiempat</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="lingkaran">
+<div class="topic-title">Lingkaran</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="luas">
+<div class="topic-title">Luas</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="keliling">
+<div class="topic-title">Keliling</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="volume">
+<div class="topic-title">Volume</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="kubus">
+<div class="topic-title">Kubus</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="balok">
+<div class="topic-title">Balok</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="prisma">
+<div class="topic-title">Prisma</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="limas">
+<div class="topic-title">Limas</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="tabung">
+<div class="topic-title">Tabung</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="kerucut">
+<div class="topic-title">Kerucut</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="bola">
+<div class="topic-title">Bola</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="statistika">
+<div class="topic-title">Statistika</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="mean rata rata">
+<div class="topic-title">Mean</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="median">
+<div class="topic-title">Median</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+<div class="topic" data-mapel="Matematika" data-key="modus">
+<div class="topic-title">Modus</div>
+<span class="topic-sub">Matematika</span>
+</div>
+
+
+<!-- ================= IPA ================= -->
+
+<div class="topic" data-mapel="IPA" data-key="makhluk hidup">
+<div class="topic-title">Makhluk Hidup</div>
+<span class="topic-sub">IPA</span>
+</div>
+
+<div class="topic" data-mapel="IPA" data-key="sel">
+<div class="topic-title">Sel</div>
+<span class="topic-sub">IPA</span>
+</div>
+
+<div class="topic" data-mapel="IPA" data-key="jaringan">
+<div class="topic-title">Jaringan</div>
+<span class="topic-sub">IPA</span>
+</div>
+
+<div class="topic" data-mapel="IPA" data-key="organ">
+<div class="topic-title">Organ</div>
+<span class="topic-sub">IPA</span>
+</div>
+
+<div class="topic" data-mapel="IPA" data-key="tumbuhan">
+<div class="topic-title">Tumbuhan</div>
+<span class="topic-sub">IPA</span>
+</div>
+
+<div class="topic" data-mapel="IPA" data-key="akar">
+<div class="topic-title">Akar</div>
+<span class="topic-sub">IPA</span>
+</div>
+
+<div class="topic" data-mapel="IPA" data-key="batang">
+<div class="topic-title">Batang</div>
+<span class="topic-sub">IPA</span>
+</div>
+
+<div class="topic" data-mapel="IPA" data-key="daun">
+<div class="topic-title">Daun</div>
+<span class="topic-sub">IPA</span>
+</div>
+
+<div class="topic" data-mapel="IPA" data-key="fotosintesis">
+<div class="topic-title">Fotosintesis</div>
+<span class="topic-sub">IPA</span>
+</div>
+
+<div class="topic" data-mapel="IPA" data-key="rantai makanan">
+<div class="topic-title">Rantai Makanan</div>
+<span class="topic-sub">IPA</span>
+</div>
+
+<div class="topic" data-mapel="IPA" data-key="ekosistem">
+<div class="topic-title">Ekosistem</div>
+<span class="topic-sub">IPA</span>
+</div>
+
+<div class="topic" data-mapel="IPA" data-key="adaptasi">
+<div class="topic-title">Adaptasi</div>
+<span class="topic-sub">IPA</span>
+</div>
+
+<div class="topic" data-mapel="IPA" data-key="sistem pencernaan">
+<div class="topic-title">Sistem Pencernaan</div>
+<span class="topic-sub">IPA</span>
+</div>
+
+<div class="topic" data-mapel="IPA" data-key="sistem pernapasan">
+<div class="topic-title">Sistem Pernapasan</div>
+<span class="topic-sub">IPA</span>
+</div>
+
+<div class="topic" data-mapel="IPA" data-key="peredaran darah">
+<div class="topic-title">Peredaran Darah</div>
+<span class="topic-sub">IPA</span>
+</div>
+
+<div class="topic" data-mapel="IPA" data-key="sistem saraf">
+<div class="topic-title">Sistem Saraf</div>
+<span class="topic-sub">IPA</span>
+</div>
+
+<div class="topic" data-mapel="IPA" data-key="energi">
+<div class="topic-title">Energi</div>
+<span class="topic-sub">IPA</span>
+</div>
+
+<div class="topic" data-mapel="IPA" data-key="gaya">
+<div class="topic-title">Gaya</div>
+<span class="topic-sub">IPA</span>
+</div>
+
+<div class="topic" data-mapel="IPA" data-key="gerak">
+<div class="topic-title">Gerak</div>
+<span class="topic-sub">IPA</span>
+</div>
+
+<div class="topic" data-mapel="IPA" data-key="magnet">
+<div class="topic-title">Magnet</div>
+<span class="topic-sub">IPA</span>
+</div>
+
+<div class="topic" data-mapel="IPA" data-key="listrik">
+<div class="topic-title">Listrik</div>
+<span class="topic-sub">IPA</span>
+</div>
+
+<div class="topic" data-mapel="IPA" data-key="bunyi">
+<div class="topic-title">Bunyi</div>
+<span class="topic-sub">IPA</span>
+</div>
+
+<div class="topic" data-mapel="IPA" data-key="cahaya">
+<div class="topic-title">Cahaya</div>
+<span class="topic-sub">IPA</span>
+</div>
+
+<div class="topic" data-mapel="IPA" data-key="suhu">
+<div class="topic-title">Suhu</div>
+<span class="topic-sub">IPA</span>
+</div>
+
+<div class="topic" data-mapel="IPA" data-key="kalor">
+<div class="topic-title">Kalor</div>
+<span class="topic-sub">IPA</span>
+</div>
+
+<div class="topic" data-mapel="IPA" data-key="tata surya">
+<div class="topic-title">Tata Surya</div>
+<span class="topic-sub">IPA</span>
+</div>
+
+<div class="topic" data-mapel="IPA" data-key="planet">
+<div class="topic-title">Planet</div>
+<span class="topic-sub">IPA</span>
+</div>
+
+
+<!-- ================= IPS ================= -->
+
+<div class="topic" data-mapel="IPS" data-key="geografi">
+<div class="topic-title">Geografi</div>
+<span class="topic-sub">IPS</span>
+</div>
+
+<div class="topic" data-mapel="IPS" data-key="peta">
+<div class="topic-title">Peta</div>
+<span class="topic-sub">IPS</span>
+</div>
+
+<div class="topic" data-mapel="IPS" data-key="skala peta">
+<div class="topic-title">Skala Peta</div>
+<span class="topic-sub">IPS</span>
+</div>
+
+<div class="topic" data-mapel="IPS" data-key="garis lintang">
+<div class="topic-title">Garis Lintang</div>
+<span class="topic-sub">IPS</span>
+</div>
+
+<div class="topic" data-mapel="IPS" data-key="garis bujur">
+<div class="topic-title">Garis Bujur</div>
+<span class="topic-sub">IPS</span>
+</div>
+
+<div class="topic" data-mapel="IPS" data-key="benua">
+<div class="topic-title">Benua</div>
+<span class="topic-sub">IPS</span>
+</div>
+
+<div class="topic" data-mapel="IPS" data-key="samudra">
+<div class="topic-title">Samudra</div>
+<span class="topic-sub">IPS</span>
+</div>
+
+<div class="topic" data-mapel="IPS" data-key="gunung">
+<div class="topic-title">Gunung</div>
+<span class="topic-sub">IPS</span>
+</div>
+
+<div class="topic" data-mapel="IPS" data-key="sungai">
+<div class="topic-title">Sungai</div>
+<span class="topic-sub">IPS</span>
+</div>
+
+<div class="topic" data-mapel="IPS" data-key="negara dunia negara">
+<div class="topic-title">Negara-Negara Dunia</div>
+<span class="topic-sub">IPS</span>
+</div>
+
+<div class="topic" data-mapel="IPS" data-key="ibu kota">
+<div class="topic-title">Ibu Kota Negara</div>
+<span class="topic-sub">IPS</span>
+</div>
+
+<div class="topic" data-mapel="IPS" data-key="bendera negara">
+<div class="topic-title">Bendera Negara</div>
+<span class="topic-sub">IPS</span>
+</div>
+
+<div class="topic" data-mapel="IPS" data-key="indonesia">
+<div class="topic-title">Indonesia</div>
+<span class="topic-sub">IPS</span>
+</div>
+
+<div class="topic" data-mapel="IPS" data-key="provinsi indonesia">
+<div class="topic-title">Provinsi Indonesia</div>
+<span class="topic-sub">IPS</span>
+</div>
+
+<div class="topic" data-mapel="IPS" data-key="sejarah indonesia">
+<div class="topic-title">Sejarah Indonesia</div>
+<span class="topic-sub">IPS</span>
+</div>
+
+<div class="topic" data-mapel="IPS" data-key="kerajaan indonesia">
+<div class="topic-title">Kerajaan Indonesia</div>
+<span class="topic-sub">IPS</span>
+</div>
+
+<div class="topic" data-mapel="IPS" data-key="kemerdekaan">
+<div class="topic-title">Kemerdekaan Indonesia</div>
+<span class="topic-sub">IPS</span>
+</div>
+
+<div class="topic" data-mapel="IPS" data-key="ekonomi">
+<div class="topic-title">Ekonomi</div>
+<span class="topic-sub">IPS</span>
+</div>
+
+<div class="topic" data-mapel="IPS" data-key="produksi">
+<div class="topic-title">Produksi</div>
+<span class="topic-sub">IPS</span>
+</div>
+
+<div class="topic" data-mapel="IPS" data-key="distribusi">
+<div class="topic-title">Distribusi</div>
+<span class="topic-sub">IPS</span>
+</div>
+
+<div class="topic" data-mapel="IPS" data-key="konsumsi">
+<div class="topic-title">Konsumsi</div>
+<span class="topic-sub">IPS</span>
+</div>
+
+
+<!-- ================= BAHASA INDONESIA ================= -->
+
+<div class="topic" data-mapel="Bahasa Indonesia" data-key="kata baku">
+<div class="topic-title">Kata Baku</div>
+<span class="topic-sub">Bahasa Indonesia</span>
+</div>
+
+<div class="topic" data-mapel="Bahasa Indonesia" data-key="sinonim">
+<div class="topic-title">Sinonim</div>
+<span class="topic-sub">Bahasa Indonesia</span>
+</div>
+
+<div class="topic" data-mapel="Bahasa Indonesia" data-key="antonim">
+<div class="topic-title">Antonim</div>
+<span class="topic-sub">Bahasa Indonesia</span>
+</div>
+
+<div class="topic" data-mapel="Bahasa Indonesia" data-key="kalimat">
+<div class="topic-title">Kalimat</div>
+<span class="topic-sub">Bahasa Indonesia</span>
+</div>
+
+<div class="topic" data-mapel="Bahasa Indonesia" data-key="subjek predikat objek">
+<div class="topic-title">Subjek, Predikat, Objek</div>
+<span class="topic-sub">Bahasa Indonesia</span>
+</div>
+
+<div class="topic" data-mapel="Bahasa Indonesia" data-key="paragraf">
+<div class="topic-title">Paragraf</div>
+<span class="topic-sub">Bahasa Indonesia</span>
+</div>
+
+<div class="topic" data-mapel="Bahasa Indonesia" data-key="ide pokok">
+<div class="topic-title">Ide Pokok</div>
+<span class="topic-sub">Bahasa Indonesia</span>
+</div>
+
+<div class="topic" data-mapel="Bahasa Indonesia" data-key="tanda baca">
+<div class="topic-title">Tanda Baca</div>
+<span class="topic-sub">Bahasa Indonesia</span>
+</div>
+
+<div class="topic" data-mapel="Bahasa Indonesia" data-key="teks deskripsi">
+<div class="topic-title">Teks Deskripsi</div>
+<span class="topic-sub">Bahasa Indonesia</span>
+</div>
+
+<div class="topic" data-mapel="Bahasa Indonesia" data-key="teks narasi">
+<div class="topic-title">Teks Narasi</div>
+<span class="topic-sub">Bahasa Indonesia</span>
+</div>
+
+<div class="topic" data-mapel="Bahasa Indonesia" data-key="teks eksplanasi">
+<div class="topic-title">Teks Eksplanasi</div>
+<span class="topic-sub">Bahasa Indonesia</span>
+</div>
+
+<div class="topic" data-mapel="Bahasa Indonesia" data-key="teks prosedur">
+<div class="topic-title">Teks Prosedur</div>
+<span class="topic-sub">Bahasa Indonesia</span>
+</div>
+
+<div class="topic" data-mapel="Bahasa Indonesia" data-key="puisi">
+<div class="topic-title">Puisi</div>
+<span class="topic-sub">Bahasa Indonesia</span>
+</div>
+
+<div class="topic" data-mapel="Bahasa Indonesia" data-key="pantun">
+<div class="topic-title">Pantun</div>
+<span class="topic-sub">Bahasa Indonesia</span>
+</div>
+
+
+<!-- ================= BAHASA INGGRIS ================= -->
+
+<div class="topic" data-mapel="Bahasa Inggris" data-key="alphabet">
+<div class="topic-title">Alphabet</div>
+<span class="topic-sub">Bahasa Inggris</span>
+</div>
+
+<div class="topic" data-mapel="Bahasa Inggris" data-key="numbers">
+<div class="topic-title">Numbers</div>
+<span class="topic-sub">Bahasa Inggris</span>
+</div>
+
+<div class="topic" data-mapel="Bahasa Inggris" data-key="colors">
+<div class="topic-title">Colors</div>
+<span class="topic-sub">Bahasa Inggris</span>
+</div>
+
+<div class="topic" data-mapel="Bahasa Inggris" data-key="family">
+<div class="topic-title">Family</div>
+<span class="topic-sub">Bahasa Inggris</span>
+</div>
+
+<div class="topic" data-mapel="Bahasa Inggris" data-key="vocabulary">
+<div class="topic-title">Vocabulary</div>
+<span class="topic-sub">Bahasa Inggris</span>
+</div>
+
+<div class="topic" data-mapel="Bahasa Inggris" data-key="simple present">
+<div class="topic-title">Simple Present</div>
+<span class="topic-sub">Bahasa Inggris</span>
+</div>
+
+<div class="topic" data-mapel="Bahasa Inggris" data-key="simple past">
+<div class="topic-title">Simple Past</div>
+<span class="topic-sub">Bahasa Inggris</span>
+</div>
+
+<div class="topic" data-mapel="Bahasa Inggris" data-key="simple future">
+<div class="topic-title">Simple Future</div>
+<span class="topic-sub">Bahasa Inggris</span>
+</div>
+
+
+<!-- ================= PPKN ================= -->
+
+<div class="topic" data-mapel="PPKn" data-key="pancasila">
+<div class="topic-title">Pancasila</div>
+<span class="topic-sub">PPKn</span>
+</div>
+
+<div class="topic" data-mapel="PPKn" data-key="uud 1945">
+<div class="topic-title">UUD 1945</div>
+<span class="topic-sub">PPKn</span>
+</div>
+
+<div class="topic" data-mapel="PPKn" data-key="hak">
+<div class="topic-title">Hak</div>
+<span class="topic-sub">PPKn</span>
+</div>
+
+<div class="topic" data-mapel="PPKn" data-key="kewajiban">
+<div class="topic-title">Kewajiban</div>
+<span class="topic-sub">PPKn</span>
+</div>
+
+<div class="topic" data-mapel="PPKn" data-key="tanggung jawab">
+<div class="topic-title">Tanggung Jawab</div>
+<span class="topic-sub">PPKn</span>
+</div>
+
+<div class="topic" data-mapel="PPKn" data-key="norma">
+<div class="topic-title">Norma</div>
+<span class="topic-sub">PPKn</span>
+</div>
+
+<div class="topic" data-mapel="PPKn" data-key="demokrasi">
+<div class="topic-title">Demokrasi</div>
+<span class="topic-sub">PPKn</span>
+</div>
+
+<div class="topic" data-mapel="PPKn" data-key="gotong royong">
+<div class="topic-title">Gotong Royong</div>
+<span class="topic-sub">PPKn</span>
+</div>
+
+<div class="topic" data-mapel="PPKn" data-key="bhinneka">
+<div class="topic-title">Bhinneka Tunggal Ika</div>
+<span class="topic-sub">PPKn</span>
+</div>
+
+
+<!-- ================= INFORMATIKA ================= -->
+
+<div class="topic" data-mapel="Informatika" data-key="komputer">
+<div class="topic-title">Komputer</div>
+<span class="topic-sub">Informatika</span>
+</div>
+
+<div class="topic" data-mapel="Informatika" data-key="hardware">
+<div class="topic-title">Hardware</div>
+<span class="topic-sub">Informatika</span>
+</div>
+
+<div class="topic" data-mapel="Informatika" data-key="software">
+<div class="topic-title">Software</div>
+<span class="topic-sub">Informatika</span>
+</div>
+
+<div class="topic" data-mapel="Informatika" data-key="sistem operasi">
+<div class="topic-title">Sistem Operasi</div>
+<span class="topic-sub">Informatika</span>
+</div>
+
+<div class="topic" data-mapel="Informatika" data-key="internet">
+<div class="topic-title">Internet</div>
+<span class="topic-sub">Informatika</span>
+</div>
+
+<div class="topic" data-mapel="Informatika" data-key="algoritma">
+<div class="topic-title">Algoritma</div>
+<span class="topic-sub">Informatika</span>
+</div>
+
+<div class="topic" data-mapel="Informatika" data-key="flowchart">
+<div class="topic-title">Flowchart</div>
+<span class="topic-sub">Informatika</span>
+</div>
+
+<div class="topic" data-mapel="Informatika" data-key="html">
+<div class="topic-title">HTML</div>
+<span class="topic-sub">Informatika</span>
+</div>
+
+<div class="topic" data-mapel="Informatika" data-key="css">
+<div class="topic-title">CSS</div>
+<span class="topic-sub">Informatika</span>
+</div>
+
+<div class="topic" data-mapel="Informatika" data-key="javascript">
+<div class="topic-title">JavaScript</div>
+<span class="topic-sub">Informatika</span>
+</div>
+
+
+<!-- ================= SENI ================= -->
+
+<div class="topic" data-mapel="Seni Budaya" data-key="seni rupa">
+<div class="topic-title">Seni Rupa</div>
+<span class="topic-sub">Seni Budaya</span>
+</div>
+
+<div class="topic" data-mapel="Seni Budaya" data-key="menggambar">
+<div class="topic-title">Menggambar</div>
+<span class="topic-sub">Seni Budaya</span>
+</div>
+
+<div class="topic" data-mapel="Seni Budaya" data-key="warna">
+<div class="topic-title">Warna</div>
+<span class="topic-sub">Seni Budaya</span>
+</div>
+
+<div class="topic" data-mapel="Seni Budaya" data-key="musik">
+<div class="topic-title">Seni Musik</div>
+<span class="topic-sub">Seni Budaya</span>
+</div>
+
+<div class="topic" data-mapel="Seni Budaya" data-key="tari">
+<div class="topic-title">Seni Tari</div>
+<span class="topic-sub">Seni Budaya</span>
+</div>
+
+<div class="topic" data-mapel="Seni Budaya" data-key="teater">
+<div class="topic-title">Teater</div>
+<span class="topic-sub">Seni Budaya</span>
+</div>
+
+
+<!-- ================= PJOK ================= -->
+
+<div class="topic" data-mapel="PJOK" data-key="kebugaran">
+<div class="topic-title">Kebugaran Jasmani</div>
+<span class="topic-sub">PJOK</span>
+</div>
+
+<div class="topic" data-mapel="PJOK" data-key="atletik">
+<div class="topic-title">Atletik</div>
+<span class="topic-sub">PJOK</span>
+</div>
+
+<div class="topic" data-mapel="PJOK" data-key="sepak bola">
+<div class="topic-title">Sepak Bola</div>
+<span class="topic-sub">PJOK</span>
+</div>
+
+<div class="topic" data-mapel="PJOK" data-key="basket">
+<div class="topic-title">Bola Basket</div>
+<span class="topic-sub">PJOK</span>
+</div>
+
+<div class="topic" data-mapel="PJOK" data-key="voli">
+<div class="topic-title">Bola Voli</div>
+<span class="topic-sub">PJOK</span>
+</div>
+
+<div class="topic" data-mapel="PJOK" data-key="bulu tangkis">
+<div class="topic-title">Bulu Tangkis</div>
+<span class="topic-sub">PJOK</span>
+</div>
+
+<div class="topic" data-mapel="PJOK" data-key="renang">
+<div class="topic-title">Renang</div>
+<span class="topic-sub">PJOK</span>
+</div>
+
+
+<!-- ================= PAI ================= -->
+
+<div class="topic" data-mapel="PAI" data-key="alquran">
+<div class="topic-title">Al-Qur'an</div>
+<span class="topic-sub">PAI</span>
+</div>
+
+<div class="topic" data-mapel="PAI" data-key="hadis">
+<div class="topic-title">Hadis</div>
+<span class="topic-sub">PAI</span>
+</div>
+
+<div class="topic" data-mapel="PAI" data-key="akidah">
+<div class="topic-title">Akidah</div>
+<span class="topic-sub">PAI</span>
+</div>
+
+<div class="topic" data-mapel="PAI" data-key="akhlak">
+<div class="topic-title">Akhlak</div>
+<span class="topic-sub">PAI</span>
+</div>
+
+<div class="topic" data-mapel="PAI" data-key="wudu">
+<div class="topic-title">Wudu</div>
+<span class="topic-sub">PAI</span>
+</div>
+
+<div class="topic" data-mapel="PAI" data-key="salat shalat">
+<div class="topic-title">Salat</div>
+<span class="topic-sub">PAI</span>
+</div>
+
+<div class="topic" data-mapel="PAI" data-key="puasa">
+<div class="topic-title">Puasa</div>
+<span class="topic-sub">PAI</span>
+</div>
+
+<div class="topic" data-mapel="PAI" data-key="zakat">
+<div class="topic-title">Zakat</div>
+<span class="topic-sub">PAI</span>
+</div>
+
+</div>
+
+<div id="noResult" class="no-result">
+  Materi yang kamu cari belum ditemukan.
+</div>
+
+</section>
+
+
+<!-- ================= ARTIKEL ================= -->
+
+<section id="article" class="article">
+
+<div class="article-cover" id="articleIcon">
+📖
+</div>
+
+<div class="article-body">
+
+<button class="back" onclick="kembali()">
+← Kembali ke daftar materi
+</button>
+
+<div id="articleContent"></div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+<strong>GasBelajar</strong><br>
+Pusat informasi dan materi pembelajaran © 2026
+</footer>
+
+
+<script>
+
+const materi = {
+
+"Aljabar": {
+icon:"🧮",
+html:`
+<h2>Aljabar</h2>
+
+<p>
+Aljabar adalah cabang matematika yang menggunakan simbol,
+huruf, dan bilangan untuk menyatakan suatu nilai atau hubungan
+matematika.
+</p>
+
+<h3>Variabel</h3>
+
+<p>
+Variabel adalah huruf atau simbol yang digunakan untuk
+mewakili suatu nilai yang dapat berubah.
+</p>
+
+<div class="example">
+<strong>Contoh:</strong><br><br>
+3x + 5<br><br>
+x disebut variabel.
+</div>
+
+<h3>Konstanta</h3>
+
+<p>
+Konstanta adalah nilai tetap yang tidak berubah.
+Pada 3x + 5, angka 5 merupakan konstanta.
+</p>
+
+<h3>Koefisien</h3>
+
+<p>
+Koefisien adalah angka yang berada di depan variabel.
+Pada 3x, angka 3 adalah koefisien.
+</p>
+
+<h3>Operasi aljabar</h3>
+
+<div class="example">
+2x + 3x = 5x<br><br>
+8x - 3x = 5x<br><br>
+2 × 4x = 8x
+</div>
+
+<h3>Kesimpulan</h3>
+
+<p>
+Dengan memahami variabel, konstanta, koefisien, dan suku,
+kita dapat mulai memahami berbagai operasi aljabar.
+</p>
+`
+},
+
+"Desimal": {
+icon:"🔢",
+html:`
+<h2>Bilangan Desimal</h2>
+
+<p>
+Bilangan desimal adalah bilangan yang memiliki bagian bulat
+dan bagian pecahan yang dipisahkan oleh tanda koma.
+</p>
+
+<div class="example">
+0,5<br>
+1,25<br>
+3,75<br>
+10,5
+</div>
+
+<h3>Hubungan dengan pecahan</h3>
+
+<p>
+0,5 sama dengan 5/10 dan dapat disederhanakan menjadi 1/2.
+</p>
+
+<p>
+0,25 sama dengan 25/100 dan dapat disederhanakan menjadi 1/4.
+</p>
+
+<h3>Penjumlahan desimal</h3>
+
+<p>
+Saat menjumlahkan bilangan desimal, sejajarkan tanda komanya.
+</p>
+
+<div class="example">
+2,5 + 1,2 = 3,7
+</div>
+`
+},
+
+"Pangkat dan Eksponen": {
+icon:"²",
+html:`
+<h2>Pangkat dan Eksponen</h2>
+
+<p>
+Pangkat adalah cara singkat untuk menuliskan perkalian
+berulang dari bilangan yang sama.
+</p>
+
+<h3>Contoh</h3>
+
+<div class="example">
+2³ = 2 × 2 × 2 = 8<br><br>
+3² = 3 × 3 = 9<br><br>
+5² = 5 × 5 = 25
+</div>
+
+<h3>Pangkat satu</h3>
+
+<p>
+Setiap bilangan bukan nol yang dipangkatkan satu menghasilkan
+bilangan itu sendiri.
+</p>
+
+<div class="info">
+7¹ = 7
+</div>
+
+<h3>Pangkat nol</h3>
+
+<p>
+Untuk bilangan bukan nol, pangkat nol bernilai satu.
+</p>
+
+<div class="info">
+5⁰ = 1
+</div>
+`
+},
+
+"Fotosintesis": {
+icon:"🌱",
+html:`
+<h2>Fotosintesis</h2>
+
+<p>
+Fotosintesis adalah proses tumbuhan hijau menghasilkan
+senyawa organik dengan memanfaatkan energi cahaya.
+</p>
+
+<h3>Tempat fotosintesis</h3>
+
+<p>
+Fotosintesis terutama berlangsung di kloroplas.
+Kloroplas mengandung klorofil yang membantu menyerap energi
+cahaya.
+</p>
+
+<h3>Yang diperlukan</h3>
+
+<div class="info">
+☀️ Cahaya<br>
+💧 Air<br>
+🌬️ Karbon dioksida<br>
+🌿 Klorofil
+</div>
+
+<h3>Proses secara sederhana</h3>
+
+<p>
+Air diserap oleh akar dan karbon dioksida masuk melalui
+stomata pada daun. Energi cahaya kemudian digunakan dalam
+rangkaian reaksi fotosintesis.
+</p>
+
+<h3>Hasil</h3>
+
+<p>
+Fotosintesis menghasilkan senyawa organik seperti glukosa
+dan juga menghasilkan oksigen.
+</p>
+
+<h3>Mengapa penting?</h3>
+
+<p>
+Fotosintesis menjadi dasar produksi makanan pada banyak
+ekosistem dan berperan penting dalam pertukaran karbon
+di atmosfer.
+</p>
+`
+},
+
+"Geografi": {
+icon:"🌍",
+html:`
+<h2>Geografi</h2>
+
+<p>
+Geografi adalah ilmu yang mempelajari fenomena di permukaan
+Bumi serta hubungan manusia dengan lingkungan dan ruang.
+</p>
+
+<h3>Yang dipelajari dalam geografi</h3>
+
+<div class="example">
+🌋 Gunung<br>
+🌊 Laut<br>
+🏞️ Sungai<br>
+🏙️ Kota<br>
+🌳 Lingkungan<br>
+👥 Penduduk
+</div>
+
+<h3>Peta</h3>
+
+<p>
+Peta adalah gambaran permukaan Bumi atau bagian tertentu
+dari permukaan Bumi pada bidang datar dengan menggunakan
+skala dan simbol.
+</p>
+
+<h3>Koordinat geografis</h3>
+
+<p>
+Letak suatu tempat dapat dijelaskan menggunakan garis lintang
+dan garis bujur.
+</p>
+`
+},
+
+"Negara-Negara Dunia": {
+icon:"🌎",
+html:`
+<h2>Negara-Negara Dunia</h2>
+
+<p>
+Setiap negara memiliki wilayah, pemerintahan, penduduk,
+budaya, dan karakteristik geografis yang berbeda.
+</p>
+
+<h3>Contoh negara</h3>
+
+<div class="example">
+🇮🇩 Indonesia — Asia<br>
+🇯🇵 Jepang — Asia<br>
+🇰🇷 Korea Selatan — Asia<br>
+🇪🇬 Mesir — Afrika<br>
+🇫🇷 Prancis — Eropa<br>
+🇧🇷 Brasil — Amerika Selatan<br>
+🇦🇺 Australia — Oseania
+</div>
+
+<h3>Yang dapat dipelajari</h3>
+
+<p>
+GasBelajar dapat mengembangkan materi setiap negara menjadi
+halaman tersendiri yang berisi letak, ibu kota, bahasa,
+budaya, kondisi geografis, dan sejarah.
+</p>
+`
+},
+
+"Pancasila": {
+icon:"🇮🇩",
+html:`
+<h2>Pancasila</h2>
+
+<p>
+Pancasila merupakan dasar negara Indonesia dan menjadi salah
+satu dasar dalam kehidupan berbangsa dan bernegara.
+</p>
+
+<h3>Lima sila</h3>
+
+<div class="example">
+1. Ketuhanan Yang Maha Esa<br>
+2. Kemanusiaan yang Adil dan Beradab<br>
+3. Persatuan Indonesia<br>
+4. Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan
+dalam Permusyawaratan/Perwakilan<br>
+5. Keadilan Sosial bagi Seluruh Rakyat Indonesia
+</div>
+`
+},
+
+"Komputer": {
+icon:"💻",
+html:`
+<h2>Komputer</h2>
+
+<p>
+Komputer merupakan perangkat elektronik yang dapat menerima
+data, memprosesnya, menyimpan data, dan menghasilkan informasi.
+</p>
+
+<h3>Hardware</h3>
+
+<p>
+Hardware adalah bagian komputer yang memiliki bentuk fisik,
+seperti keyboard, layar, mouse, dan prosesor.
+</p>
+
+<h3>Software</h3>
+
+<p>
+Software adalah perangkat lunak yang memberikan instruksi
+kepada komputer.
+</p>
+`
+},
+
+"HTML": {
+icon:"🌐",
+html:`
+<h2>HTML</h2>
+
+<p>
+HTML digunakan untuk membuat struktur sebuah halaman web.
+</p>
+
+<h3>Contoh elemen</h3>
+
+<div class="example">
+&lt;h1&gt;Judul&lt;/h1&gt;<br><br>
+&lt;p&gt;Ini paragraf.&lt;/p&gt;
+</div>
+
+<p>
+HTML dapat digunakan bersama CSS dan JavaScript untuk membuat
+website yang lebih lengkap.
+</p>
+`
+},
+
+"Simple Present": {
+icon:"🇬🇧",
+html:`
+<h2>Simple Present</h2>
+
+<p>
+Simple Present digunakan antara lain untuk menyatakan kebiasaan,
+fakta, dan keadaan yang umum.
+</p>
+
+<h3>Contoh</h3>
+
+<div class="example">
+I study every day.<br><br>
+She likes music.<br><br>
+The sun rises in the east.
+</div>
+`
+}
+
+};
+
+
+const topics = document.querySelectorAll(".topic");
+
+
+topics.forEach(function(topic){
+
+  topic.addEventListener("click",function(){
+
+    const nama =
+      topic.querySelector(".topic-title").innerText;
+
+    bukaMateri(nama);
+
+  });
+
+});
+
+
+function cari(){
+
+  const kata =
+    document.getElementById("search")
+    .value
+    .toLowerCase()
+    .trim();
+
+  let jumlah = 0;
+
+  topics.forEach(function(topic){
+
+    const teks =
+      (
+        topic.innerText +
+        " " +
+        topic.dataset.key
+      ).toLowerCase();
+
+    if(teks.includes(kata)){
+
+      topic.style.display = "";
+
+      jumlah++;
+
+    }else{
+
+      topic.style.display = "none";
+
+    }
+
+  });
+
+  document.getElementById("noResult").style.display =
+    jumlah === 0 ? "block" : "none";
+
+}
+
+
+function filterMapel(mapel){
+
+  document.getElementById("search").value = "";
+
+  let jumlah = 0;
+
+  topics.forEach(function(topic){
+
+    if(topic.dataset.mapel === mapel){
+
+      topic.style.display = "";
+
+      jumlah++;
+
+    }else{
+
+      topic.style.display = "none";
+
+    }
+
+  });
+
+  document
+    .getElementById("topics")
+    .scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+
+}
+
+
+function resetFilter(){
+
+  document.getElementById("search").value = "";
+
+  topics.forEach(function(topic){
+
+    topic.style.display = "";
+
+  });
+
+  document.getElementById("noResult").style.display = "none";
+
+}
+
+
+function bukaMateri(nama){
+
+  document.getElementById("home").style.display = "none";
+
+  document.getElementById("article").style.display = "block";
+
+  const data = materi[nama];
+
+  if(data){
+
+    document.getElementById("articleIcon").innerText =
+      data.icon;
+
+    document.getElementById("articleContent").innerHTML =
+      data.html;
+
+  }else{
+
+    document.getElementById("articleIcon").innerText =
+      "📚";
+
+    document.getElementById("articleContent").innerHTML = `
+
+      <h2>${nama}</h2>
+
+      <p>
+      Materi ini sedang dikembangkan.
+      </p>
+
+      <div class="info">
+      GasBelajar akan menambahkan penjelasan,
+      contoh, rumus, dan ilustrasi untuk materi ini.
+      </div>
+
+    `;
+
+  }
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+function kembali(){
+
+  document.getElementById("article").style.display = "none";
+
+  document.getElementById("home").style.display = "block";
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+</script>
+
+</body>
+  </html>
